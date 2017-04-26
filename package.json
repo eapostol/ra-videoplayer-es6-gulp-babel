@@ -1,0 +1,35 @@
+{
+  "name": "ra-videoplayer-es6-gulp-babel",
+  "version": "1.0.0",
+  "description": "Simple Video Player using Gulp for building and Babel for ES6 to ES5 transpilation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eapostol/ra-videoplayer-es6-gulp-babel.git"
+  },
+  "keywords": [
+    "HTML5",
+    "CSS3",
+    "Javascript",
+    "ES5",
+    "ES6",
+    "ECMAScript",
+    "2015",
+    "babel",
+    "gulp"
+  ],
+  "author": "Edward J. Apostol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eapostol/ra-videoplayer-es6-gulp-babel/issues"
+  },
+  "homepage": "https://github.com/eapostol/ra-videoplayer-es6-gulp-babel#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
