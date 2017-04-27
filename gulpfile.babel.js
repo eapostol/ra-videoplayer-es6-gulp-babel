@@ -17,14 +17,27 @@
 
 import gulp from 'gulp';
 import sass from 'gulp-sass';
+import browsersync from 'browser-sync';
 
+browsersync.create();
+let browserSyncFn = () => {
+    browsersync.init({
+        server: {
+            baseDir: 'app'
+        },
+    });
+};
 
+gulp.task('browserSyncTask', browserSyncFn);
 
 let sassFn = () =>{
     console.log('sassifying scss');
     return gulp.src('./app/scss/main.scss')
-        .pipe(sass()) // Using gulp-sass
+        .pipe(sass())
         .pipe(gulp.dest('./app/css'))
+        .pipe(browsersync.reload({
+            stream: true
+        }))
 };
 
 /* add a watch to monitor changes to files
@@ -36,10 +49,11 @@ let sassFn = () =>{
 */
 // gulp.watch('app/scss/**/*.scss', ['sassFn'])
 // sassify code
-// gulp.task('sass',sassFn );
+gulp.task('sass',sassFn );
 let watchFn = ()=>{
     gulp.watch('app/scss/**/*.scss', [sassFn]);
 };
-gulp.task('watch',watchFn);
+
+gulp.task('watch',['browserSyncTask','sass'], watchFn);
 
 // gulp.task('default', () => console.log('Default task called'));
