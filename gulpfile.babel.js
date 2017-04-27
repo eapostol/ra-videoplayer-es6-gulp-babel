@@ -52,6 +52,10 @@ let sassFn = () =>{
 gulp.task('sass',sassFn );
 let watchFn = ()=>{
     gulp.watch('app/scss/**/*.scss', [sassFn]);
+
+    // Reloads the browser whenever HTML or JS files change
+    gulp.watch('app/*.html', browsersync.reload);
+    gulp.watch('app/js/**/*.js', browsersync.reload);
 };
 
 gulp.task('watch',['browserSyncTask','sass'], watchFn);
