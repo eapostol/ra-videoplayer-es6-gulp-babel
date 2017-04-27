@@ -268,10 +268,28 @@ return gulp.src(...)
 
 _`gulp.task('watch',['browserSyncTask','sass'], watchFn);`_
 
+7. modify the watch function to refresh the server whenever html or js files are changed.
 
+```let watchFn = () => { ```
 
+```// ...previous code...```
 
+```// Reloads the browser whenever HTML or JS files change```
+  
+  ```gulp.watch("app/*.html", browserSync.reload);``` 
+  
+  ```gulp.watch("app/js/**/*.js", browserSync.reload); ```
 
+```}```
+
+TODOS:
+1. implement babel to actually transpile the code
+2. add any remaining modules and troubleshoot transpilation
+3. create a gulp task to copy the files over from app to dist
+4. configure gulp to use the dist folder as the directory to serve the pages
+5. test!
+
+    
 
 
 
